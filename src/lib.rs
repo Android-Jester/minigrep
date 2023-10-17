@@ -1,5 +1,10 @@
 use std::{env, error::Error, fs, println};
 
+pub fn hello() -> String {
+    String::from("Hello")
+}
+
+
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.file_path)?;
     for line in search(&config.query, &contents) {
@@ -96,6 +101,5 @@ Trust me.";
         println!("Before calling closure: {:?}", list);
         only_borrows();
         println!("After calling closure: {:?}", list);
-        epr
     }
 }
